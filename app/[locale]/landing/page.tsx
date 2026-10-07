@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { LandingPage } from "@/components/landing/LandingPage";
 import { PRODUCT_FACTS, atLeast } from "@/lib/seo/product-facts";
 
@@ -75,7 +75,7 @@ export default function LandingPageRoute() {
       howItWorks={howItWorks}
       videoTestimonials={videoTestimonials}
       videoTestimonialsTitle="Creators Love Screenshot Studio"
-      brandName="Screenshot Studio"
+      brandName="PhotoRedactor"
     />
   );
 }

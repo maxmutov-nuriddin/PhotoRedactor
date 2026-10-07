@@ -20,14 +20,10 @@ export const PERSON_ID = `${BASE_URL}/#founder`;
 
 export function getFounderSchema() {
   return {
-    "@type": "Person",
+    "@type": "Organization",
     "@id": PERSON_ID,
-    name: "Kartik Labhshetwar",
+    name: "PhotoRedactor",
     url: `${BASE_URL}/about`,
-    sameAs: [
-      "https://x.com/code_kartik",
-      "https://github.com/KartikLabhshetwar",
-    ],
   };
 }
 
@@ -35,7 +31,7 @@ export function getOrganizationSchema() {
   return {
     "@type": "Organization",
     "@id": `${BASE_URL}/#organization`,
-    name: "Screenshot Studio",
+    name: "PhotoRedactor",
     url: BASE_URL,
     logo: {
       "@type": "ImageObject",
@@ -44,37 +40,18 @@ export function getOrganizationSchema() {
       height: 512,
     },
     sameAs: [
-      "https://github.com/opennookorg/screenshot-studio",
-      "https://x.com/screenshotstdio",
+      "https://github.com/maxmutov-nuriddin/PhotoRedactor",
     ],
-    founder: { "@id": PERSON_ID },
-    email: "kartik.labhshetwar@gmail.com",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "IN",
-    },
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "kartik.labhshetwar@gmail.com",
         url: `${BASE_URL}/contact`,
         availableLanguage: [
           "English",
-          "Spanish",
-          "French",
-          "German",
-          "Japanese",
-          "Portuguese",
-          "Korean",
-          "Chinese",
+          "Russian",
+          "Uzbek",
         ],
-      },
-      {
-        "@type": "ContactPoint",
-        contactType: "technical support",
-        url: "https://github.com/opennookorg/screenshot-studio/issues",
-        email: "kartik.labhshetwar@gmail.com",
       },
     ],
     description:

@@ -559,15 +559,6 @@ export function EditorHeader() {
           <Button variant="ghost" size="icon" aria-label="Keyboard shortcuts" onClick={() => setShortcutsOpen(true)}>
             <KeyboardIcon size={16} />
           </Button>
-          {!isMobile ? <GitHubStarButton compact /> : null}
-          <a
-            href="https://x.com/code_kartik"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-9 h-9 rounded-md text-muted-foreground transition-[color,filter] duration-150 hover:text-foreground "
-          >
-            <NewTwitterIcon className="h-[18px] w-[18px]" />
-          </a>
         </div>
       </header>
 

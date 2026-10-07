@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight01Icon } from "hugeicons-react";
@@ -234,7 +234,7 @@ export default function GuidesHubPage() {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

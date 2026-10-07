@@ -229,12 +229,11 @@ test("methodNotAllowed advertises Allow and notFoundJson points at the spec", as
   assert.match(missingJson.hint, /openapi\.json/);
 });
 
-test("agent-facing copy points at the canonical www host and the brand X account", () => {
+test("agent-facing copy points at the canonical www host", () => {
   const sources = [llmsTxt, llmsFullTxt, BASE_URL, openApiSpec.servers[0].url];
   for (const source of sources) {
     assert.doesNotMatch(source, /https:\/\/screenshot-studio\.com/);
   }
-  assert.match(llmsTxt, /x\.com\/screenshotstdio/);
   assert.equal(BASE_URL, "https://www.screenshot-studio.com");
 });
 

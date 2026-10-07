@@ -209,20 +209,7 @@ function StoreHeader({
           </div>
         </>
       ) : (
-        <div className="flex items-center gap-1">
-          <div className="hidden sm:block">
-            <GitHubStarButton compact />
-          </div>
-          <a
-            href="https://x.com/code_kartik"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow Screenshot Studio on X"
-            className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors duration-150 hover:text-foreground"
-          >
-            <NewTwitterIcon className="size-[18px]" />
-          </a>
-        </div>
+        <div className="flex items-center gap-1" />
       )}
     </header>
   );

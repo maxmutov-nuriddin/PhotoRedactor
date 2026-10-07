@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight01Icon } from "hugeicons-react";
 import { Navigation } from "@/components/landing/Navigation";
@@ -159,8 +159,8 @@ function TweetPreview(): React.JSX.Element {
             style={{ background: gradientColors.orange_pink_dark }}
           />
           <div className="min-w-0 flex-1 text-[11px] leading-4">
-            <p className="font-semibold text-neutral-900">Screenshot Studio</p>
-            <p className="text-neutral-500">@screenshotstdio</p>
+            <p className="font-semibold text-neutral-900">PhotoRedactor</p>
+            <p className="text-neutral-500">@photoredactor</p>
           </div>
           <span className="text-sm font-bold text-neutral-900">𝕏</span>
         </div>
@@ -510,7 +510,7 @@ export default function StartPage() {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

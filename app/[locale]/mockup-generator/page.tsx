@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight01Icon } from "hugeicons-react";
 import { Navigation } from "@/components/landing/Navigation";
@@ -215,7 +215,7 @@ export default function MockupGeneratorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <Navigation brandName="Screenshot Studio" />
+      <Navigation brandName="PhotoRedactor" />
 
       <main className="flex-1">
         <section className="px-6 pb-20 pt-32">
@@ -388,7 +388,7 @@ export default function MockupGeneratorPage() {
         </section>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

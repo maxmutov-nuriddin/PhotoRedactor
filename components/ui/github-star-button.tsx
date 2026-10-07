@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { CountUp } from "@/components/ui/CountUp";
 
-const REPO = "opennookorg/screenshot-studio";
+const REPO = "maxmutov-nuriddin/PhotoRedactor";
 const CACHE_KEY = "gh-stars-v2";
 const CACHE_TTL = 5 * 60 * 1000;
 
@@ -74,42 +74,5 @@ function useStarCount() {
 }
 
 export function GitHubStarButton({ compact }: { compact?: boolean }) {
-  const stars = useStarCount();
-
-  return (
-    <Link
-      href={`https://github.com/${REPO}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={
-        stars != null && stars > 0
-          ? `GitHub repository, ${formatStarCount(stars)} stars`
-          : "GitHub repository"
-      }
-      className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-md font-medium tabular-nums",
-        "text-foreground active:scale-[0.99]",
-        "transition-[color,filter,text-shadow] duration-150",
-        "hover:text-foreground hover:[text-shadow:0_0_12px_var(--nav-cta-glow)]",
-        "hover:[&_svg]:text-foreground hover:[&_svg]:drop-shadow-[0_0_8px_var(--nav-cta-glow)]",
-        compact ? "h-9 px-2.5 text-sm" : "h-9 pl-2 pr-1.5 text-sm",
-      )}
-    >
-      <GitHubIcon
-        className={cn(
-          "size-[18px] shrink-0 text-foreground/60 transition-[color,filter] duration-150",
-        )}
-      />
-      {stars !== null && stars > 0 ? (
-        <CountUp
-          from={0}
-          to={stars}
-          direction="up"
-          duration={1.4}
-          delay={0}
-          format={formatStarCount}
-        />
-      ) : null}
-    </Link>
-  );
+  return null;
 }

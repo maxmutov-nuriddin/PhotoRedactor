@@ -423,9 +423,6 @@ export function Navigation({
 
         <div className="col-start-3 flex items-center gap-2 justify-self-end shrink-0">
           <LanguageSwitcher />
-          <div className="hidden md:block">
-            <GitHubStarButton />
-          </div>
           <button
             type="button"
             className="md:hidden flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50"

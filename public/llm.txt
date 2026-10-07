@@ -1,7 +1,7 @@
-# Screenshot Studio - Free Online Screenshot Editor
+# PhotoRedactor - Free Online Image & Screenshot Editor
 
 ## About
-Screenshot Studio is a free, open-source, browser-based screenshot editor that transforms plain screenshots into professional-quality graphics. Editing runs in your browser: imported images are not uploaded to edit them, and export compression round-trips the finished image through the server without storing it. No signup, no watermarks, no downloads required.
+PhotoRedactor is a free, open-source, browser-based screenshot editor that transforms plain screenshots into professional-quality graphics. Editing runs in your browser: imported images are not uploaded to edit them, and export compression round-trips the finished image through the server without storing it. No signup, no watermarks, no downloads required.
 
 ## Core Features
 - **100+ Backgrounds** — Gradients, mesh, radiant, paper textures, patterns, solid colors
@@ -89,10 +89,7 @@ Developers, designers, marketers, indie hackers, content creators, and anyone wh
 100% free. No signup, no watermarks, no hidden costs, no premium tier. Unlimited exports with full feature access.
 
 ## Contact
-- Website: https://www.screenshot-studio.com
-- Twitter/X: https://x.com/screenshotstdio
-- GitHub: https://github.com/opennookorg/screenshot-studio
-- Email: kartik.labhshetwar@gmail.com
+- GitHub: https://github.com/maxmutov-nuriddin/PhotoRedactor
 
 ## LLMs.txt
 For structured markdown documentation, visit: https://www.screenshot-studio.com/llms.txt

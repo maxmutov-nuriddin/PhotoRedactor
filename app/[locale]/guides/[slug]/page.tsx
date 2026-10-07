@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -398,9 +398,8 @@ export default async function GuidePage({ params }: PageProps) {
                     href="/about"
                     className="text-foreground underline-offset-4 hover:underline"
                   >
-                    Kartik Labhshetwar
+                    PhotoRedactor Team
                   </Link>
-                  , maker of Screenshot Studio
                 </span>
                 <span aria-hidden="true" className="max-sm:hidden">
                   ·
@@ -484,7 +483,7 @@ export default async function GuidePage({ params }: PageProps) {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { SITE_URL } from "@/lib/seo/metadata";
-import Script from "next/script";
 import {
   Geist,
   Geist_Mono,
@@ -35,9 +34,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/lib/query-client";
 import { GlobalDropZone } from "@/components/GlobalDropZone";
 import { PathTracker } from "@/components/landing/GoBackButton";
-import { AdFreeRouteLinks } from "@/components/AdFreeRouteLinks";
 import { getRootJsonLd } from "@/lib/seo/json-ld";
-import { ADSENSE_CLIENT } from "@/components/AdSenseScript";
 import { PRODUCT_FACTS, atLeast } from "@/lib/seo/product-facts";
 
 // System UI fonts
@@ -385,9 +382,6 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   category: "Design Tools",
-  other: {
-    "google-adsense-account": ADSENSE_CLIENT,
-  },
 };
 
 export const viewport: Viewport = {
@@ -406,7 +400,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <meta name="msvalidate.01" content="A3B8CB50BBD78710971A13FA3EE1E544" />
       <link
         rel="alternate"
         type="text/markdown"
@@ -424,22 +417,9 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(rootJsonLd) }}
         />
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-WWTQR26VH4"
-          strategy="lazyOnload"
-        />
-        <Script id="ga4" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-WWTQR26VH4');`}
-        </Script>
-        <Script src="https://clicks.page/t.js" data-site="682g4e3l336g" />
         <QueryProvider>
           <GlobalDropZone>
             <PathTracker />
-            <AdFreeRouteLinks />
             {children}
           </GlobalDropZone>
           <Toaster />

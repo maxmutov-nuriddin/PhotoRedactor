@@ -1,6 +1,6 @@
 {
-  "name": "Screenshot Studio",
-  "short_name": "Screenshot Studio",
+  "name": "PhotoRedactor",
+  "short_name": "PhotoRedactor",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

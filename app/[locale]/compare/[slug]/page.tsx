@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/landing/Navigation";
@@ -351,7 +351,7 @@ export default async function ComparisonPage({ params }: PageProps) {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

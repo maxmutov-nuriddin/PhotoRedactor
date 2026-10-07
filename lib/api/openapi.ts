@@ -12,15 +12,14 @@ const errorResponse = (description: string) => ({
 export const openApiSpec = {
   openapi: "3.1.0",
   info: {
-    title: "Screenshot Studio API",
+    title: "PhotoRedactor API",
     version: "1.0.0",
-    summary: "Public HTTP API for Screenshot Studio.",
+    summary: "Public HTTP API for PhotoRedactor.",
     description:
-      "Screenshot Studio is a free, open-source, browser-based screenshot editor. This API exposes the server-side operations the editor uses: capturing a live web page as an image, recompressing an exported image, resolving a tweet for tweet-to-image rendering, and proxying Twitter media. No API key or account is required; requests are anonymous and shaped by per-IP rate limits. Every error response uses the same JSON envelope with a stable `code` and a human-readable `hint`.",
+      "PhotoRedactor is a free, open-source, browser-based screenshot editor. This API exposes the server-side operations the editor uses: capturing a live web page as an image, recompressing an exported image, resolving a tweet for tweet-to-image rendering, and proxying Twitter media. No API key or account is required; requests are anonymous and shaped by per-IP rate limits. Every error response uses the same JSON envelope with a stable `code` and a human-readable `hint`.",
     contact: {
-      name: "Screenshot Studio",
+      name: "PhotoRedactor",
       url: `${BASE_URL}/contact`,
-      email: "kartik.labhshetwar@gmail.com",
     },
     license: {
       name: "Apache-2.0",

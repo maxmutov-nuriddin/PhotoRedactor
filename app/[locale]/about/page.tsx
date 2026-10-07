@@ -77,7 +77,7 @@ export default function AboutPage() {
         <div className="space-y-8">
           <section>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Screenshot Studio is a free, open-source screenshot editor built
+              PhotoRedactor is a free, open-source screenshot editor built
               for developers, designers, and marketers who want their images to
               look professional, without paying for expensive tools or signing
               up for yet another account.
@@ -189,39 +189,19 @@ export default function AboutPage() {
               className="mb-3 text-xl font-semibold tracking-[-0.02em] text-foreground"
               style={{ fontFamily: INTER }}
             >
-              How the Site Is Funded
-            </h2>
-            <p className="leading-relaxed text-muted-foreground">
-              There is no paid plan, no watermark, and no account. The site is
-              supported by ads from Google AdSense shown on content pages. Ads
-              never affect what we recommend in guides or comparisons. The{" "}
-              <Link href="/privacy-policy" className={linkClassName}>
-                privacy policy
-              </Link>{" "}
-              explains how ads use cookies and how to opt out of personalized
-              ads.
-            </p>
-          </section>
-
-          <section>
-            <h2
-              className="mb-3 text-xl font-semibold tracking-[-0.02em] text-foreground"
-              style={{ fontFamily: INTER }}
-            >
               Open Source
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              Screenshot Studio is fully open source. You can view, contribute
-              to, or fork the project on{" "}
+              PhotoRedactor is fully open source. You can view or fork the project on{" "}
               <Link
-                href="https://github.com/opennookorg/screenshot-studio"
+                href="https://github.com/maxmutov-nuriddin/PhotoRedactor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClassName}
               >
                 GitHub
               </Link>
-              . We believe the best tools are built in the open.
+              .
             </p>
           </section>
 
@@ -230,28 +210,10 @@ export default function AboutPage() {
               className="mb-3 text-xl font-semibold tracking-[-0.02em] text-foreground"
               style={{ fontFamily: INTER }}
             >
-              Built By
+              About the Project
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              Created and maintained by{" "}
-              <Link
-                href="https://x.com/code_kartik"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClassName}
-              >
-                Kartik Labhshetwar
-              </Link>
-              , an independent developer, with contributions from the
-              open-source community on GitHub. You can reach Kartik at{" "}
-              <Link
-                href="mailto:kartik.labhshetwar@gmail.com"
-                className={linkClassName}
-              >
-                kartik.labhshetwar@gmail.com
-              </Link>
-              . If you find Screenshot Studio useful, consider starring the repo
-              or sharing it with others.
+              PhotoRedactor is designed to make screenshots and mockups fast, easy, and completely free right inside your browser with zero data tracking.
             </p>
           </section>
         </div>

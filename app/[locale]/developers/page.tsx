@@ -62,9 +62,9 @@ const RESOURCES = [
     detail: "Long-form Markdown reference covering features and the API.",
   },
   {
-    href: "https://github.com/opennookorg/screenshot-studio",
+    href: "https://github.com/maxmutov-nuriddin/PhotoRedactor",
     label: "Source code on GitHub",
-    detail: "Apache 2.0. Issues, discussions, and self-hosting instructions.",
+    detail: "Open source. Issues, discussions, and self-hosting instructions.",
   },
 ];
 
@@ -206,8 +206,8 @@ export default function DevelopersPage() {
               instead:
             </p>
             <pre className={codeBlockClassName}>
-              <code>{`git clone https://github.com/opennookorg/screenshot-studio.git
-cd screenshot-studio
+              <code>{`git clone https://github.com/maxmutov-nuriddin/PhotoRedactor.git
+cd PhotoRedactor
 npm install
 npm run dev`}</code>
             </pre>
@@ -247,7 +247,7 @@ npm run dev`}</code>
               curl examples above are the supported command-line path. If you
               want either one,{" "}
               <a
-                href="https://github.com/opennookorg/screenshot-studio/issues"
+                href="https://github.com/maxmutov-nuriddin/PhotoRedactor/issues"
                 className={linkClassName}
               >
                 open an issue
@@ -266,7 +266,7 @@ npm run dev`}</code>
             <p className="leading-relaxed text-muted-foreground">
               File bugs and feature requests on{" "}
               <a
-                href="https://github.com/opennookorg/screenshot-studio/issues"
+                href="https://github.com/maxmutov-nuriddin/PhotoRedactor/issues"
                 className={linkClassName}
               >
                 GitHub issues

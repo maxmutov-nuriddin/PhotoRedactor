@@ -104,7 +104,7 @@ ${primaryToolLines}
 - llms-full.txt: ${BASE_URL}/llms-full.txt
 - Sitemap: ${BASE_URL}/sitemap.xml
 - robots.txt: ${BASE_URL}/robots.txt
-- Source code: https://github.com/opennookorg/screenshot-studio
+- Source code: https://github.com/maxmutov-nuriddin/PhotoRedactor
 
 The Screenshot Studio API is public and needs no API key, token, or account. Every error is JSON with a stable \`code\`, a \`message\`, and a \`hint\`. Any page also serves Markdown when the request sends \`Accept: text/markdown\`.
 
@@ -145,9 +145,7 @@ Developers, designers, marketers, indie hackers, content creators, and anyone wh
 ## Contact
 
 - Website: ${BASE_URL}
-- Twitter/X: https://x.com/screenshotstdio
-- GitHub: https://github.com/opennookorg/screenshot-studio
-- Email: kartik.labhshetwar@gmail.com
+- GitHub: https://github.com/maxmutov-nuriddin/PhotoRedactor
 
 ## Full Documentation
 
@@ -160,7 +158,7 @@ export const llmsFullTxt = `# Screenshot Studio - Complete Reference
 
 ## What is Screenshot Studio?
 
-Screenshot Studio is a free, browser-based screenshot editor that transforms plain screenshots into professional-quality graphics. Editing runs in the browser, so imported images are not uploaded to edit them; export compression round-trips the finished image through the server without storing it. It is open source and available at https://github.com/opennookorg/screenshot-studio.
+PhotoRedactor is a free, browser-based screenshot editor that transforms plain screenshots into professional-quality graphics. Editing runs in the browser, so imported images are not uploaded to edit them; export compression round-trips the finished image through the server without storing it. It is open source and available at https://github.com/maxmutov-nuriddin/PhotoRedactor.
 
 Built as a free alternative to paid tools like Pika Style, Shots.so, and CleanShot X, Screenshot Studio is used by developers, marketers, and designers to create polished images for social media, landing pages, documentation, and presentations.
 
@@ -427,9 +425,6 @@ All image processing happens in the browser. No images are uploaded to any serve
 ## Contact & Links
 
 - **Website**: ${BASE_URL}
-- **GitHub**: https://github.com/opennookorg/screenshot-studio
-- **Twitter/X**: https://x.com/screenshotstdio
-- **Email**: kartik.labhshetwar@gmail.com
-- **Bug Reports**: https://github.com/opennookorg/screenshot-studio/issues
-- **Feature Requests**: https://github.com/opennookorg/screenshot-studio/issues/new?labels=enhancement
+- **GitHub**: https://github.com/maxmutov-nuriddin/PhotoRedactor
+- **Bug Reports**: https://github.com/maxmutov-nuriddin/PhotoRedactor/issues
 `;

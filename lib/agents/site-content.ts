@@ -206,7 +206,7 @@ export const AGENT_PAGES: AgentPage[] = [
       "OpenAPI 3.1 spec: /openapi.json",
       "Authentication and rate limits: /docs/authentication",
       "Agent overview: /llms.txt and /llms-full.txt",
-      "Source: https://github.com/opennookorg/screenshot-studio",
+      "Source: https://github.com/maxmutov-nuriddin/PhotoRedactor",
     ],
   },
   {

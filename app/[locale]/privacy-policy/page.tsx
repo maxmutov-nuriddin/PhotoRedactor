@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { Navigation } from "@/components/landing/Navigation";
 import { Footer } from "@/components/landing/Footer";
@@ -6,13 +6,13 @@ import { Footer } from "@/components/landing/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy Policy for Screenshot Studio. What stays on your device, what is sent to our server, how ads and analytics use cookies, and how to opt out.",
+    "Privacy Policy for PhotoRedactor. What stays on your device, what is sent to our server, and how your privacy is protected.",
   alternates: {
     canonical: "/privacy-policy",
   },
 };
 
-const CONTACT_EMAIL = "kartik.labhshetwar@gmail.com";
+const CONTACT_EMAIL = "support@photoredactor.app";
 
 const linkClassName =
   "text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground/60";
@@ -69,26 +69,11 @@ function Code({ children }: { children: React.ReactNode }) {
   );
 }
 
-const THIRD_PARTY_COOKIES = [
-  {
-    name: "Google AdSense",
-    purpose:
-      "Serving ads, limiting how often you see the same ad, measuring ad performance, fraud prevention, and (only where you allow it) ad personalization.",
-    policy: "https://policies.google.com/technologies/ads",
-  },
-  {
-    name: "Google Analytics",
-    purpose:
-      "Counting visits and page views and understanding which pages are useful. Sets _ga cookies.",
-    policy: "https://policies.google.com/privacy",
-  },
-  {
-    name: "PostHog",
-    purpose:
-      "Product analytics for feature usage. Stores a first-party identifier so repeat visits are recognized.",
-    policy: "https://posthog.com/privacy",
-  },
-];
+const THIRD_PARTY_COOKIES: {
+  name: string;
+  purpose: string;
+  policy: string;
+}[] = [];
 
 export default function PrivacyPolicyPage() {
   return (
@@ -109,17 +94,15 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-none space-y-8">
           <Section title="Overview">
             <p className="mb-3 leading-relaxed text-muted-foreground">
-              Screenshot Studio (screenshot-studio.com) is a free, open-source,
-              browser-based image editor operated by Kartik Labhshetwar. There
+              PhotoRedactor is a free, open-source,
+              browser-based image editor. There
               is no account, no signup, and no login, so we never ask you for a
               name, an email address, or payment details to use the editor.
             </p>
             <p className="leading-relaxed text-muted-foreground">
               Editing, compositing, and preview rendering happen on your device
-              in the browser canvas. A few features do send data off your
-              device, and the site is funded by advertising and measured with
-              analytics. Each of these is described below. We do not sell your
-              personal information.
+              in the browser canvas. PhotoRedactor is 100% ad-free and tracker-free.
+              We do not sell your personal information.
             </p>
           </Section>
 
@@ -208,93 +191,16 @@ export default function PrivacyPolicyPage() {
             </ul>
           </Section>
 
-          <Section id="advertising" title="Advertising">
-            <p className="mb-3 leading-relaxed text-muted-foreground">
-              Screenshot Studio is free because it shows ads served by Google
-              AdSense on content pages such as guides, comparisons, and tool
-              pages. The images you edit are never shared with Google or any
-              ad partner.
-            </p>
-            <ul className="list-inside list-disc space-y-3 text-muted-foreground">
-              <li>
-                Third-party vendors, including Google, use cookies to serve ads
-                based on your prior visits to this website or other websites.
-              </li>
-              <li>
-                Google&apos;s use of advertising cookies enables it and its
-                partners to serve ads to you based on your visit to this site
-                and/or other sites on the Internet.
-              </li>
-              <li>
-                You may opt out of personalized advertising by visiting{" "}
-                <ExternalLink href="https://www.google.com/settings/ads">
-                  Google Ads Settings
-                </ExternalLink>{" "}
-                or{" "}
-                <ExternalLink href="https://myadcenter.google.com">
-                  My Ad Center
-                </ExternalLink>
-                . You can also opt out of some third-party vendors&apos; use of
-                cookies for personalized advertising at{" "}
-                <ExternalLink href="https://optout.aboutads.info">
-                  aboutads.info
-                </ExternalLink>{" "}
-                (US) or{" "}
-                <ExternalLink href="https://www.youronlinechoices.eu">
-                  youronlinechoices.eu
-                </ExternalLink>{" "}
-                (EU).
-              </li>
-              <li>
-                Google may also work with other certified ad vendors when
-                serving ads here. The list of these vendors is available in{" "}
-                <ExternalLink href="https://support.google.com/admanager/answer/9012903">
-                  Google&apos;s ad technology providers list
-                </ExternalLink>
-                .
-              </li>
-              <li>
-                Learn more about{" "}
-                <ExternalLink href="https://policies.google.com/technologies/partner-sites">
-                  how Google uses information from sites or apps that use its
-                  services
-                </ExternalLink>
-                .
-              </li>
-            </ul>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              If you opt out, you will still see ads, but they will not be
-              personalized based on your browsing.
+          <Section id="advertising" title="No Advertising">
+            <p className="leading-relaxed text-muted-foreground">
+              PhotoRedactor is free and completely ad-free. We do not display third-party advertisements or use ad tracking networks. The images you edit never leave your browser and are never shared with advertising partners.
             </p>
           </Section>
 
-          <Section title="Analytics">
-            <p className="mb-3 leading-relaxed text-muted-foreground">
-              We use analytics to learn which pages and features are useful and
-              to find bugs. We look at aggregate numbers, not at individuals.
+          <Section title="Privacy & Analytics">
+            <p className="leading-relaxed text-muted-foreground">
+              We respect your privacy. PhotoRedactor does not run third-party tracking scripts or profile individual users. All image manipulation and canvas operations are carried out client-side on your device.
             </p>
-            <ul className="list-inside list-disc space-y-3 text-muted-foreground">
-              <li>
-                <strong className="text-foreground">Google Analytics:</strong>{" "}
-                page views, referring sites, approximate location (country or
-                city), and device and browser type. You can install the{" "}
-                <ExternalLink href="https://tools.google.com/dlpage/gaoptout">
-                  Google Analytics opt-out browser add-on
-                </ExternalLink>
-                .
-              </li>
-              <li>
-                <strong className="text-foreground">PostHog:</strong> feature
-                usage events, such as which editor controls are used and whether
-                an export succeeded. Events never contain your images.
-              </li>
-              <li>
-                <strong className="text-foreground">clicks.page:</strong> page
-                view and link-click counts. It receives the page address,
-                referrer, and standard request data such as your IP address and
-                browser user agent.
-              </li>
-            </ul>
           </Section>
 
           <Section title="Hosting and Security">
@@ -318,41 +224,10 @@ export default function PrivacyPolicyPage() {
 
           <Section id="cookies" title="Cookies">
             <p className="mb-3 leading-relaxed text-muted-foreground">
-              We set one functional cookie ourselves,{" "}
-              <Code>screenshot-studio-store-active</Code>, and only when you
-              have an App Store screenshot project open, so the page can restore
-              it on your next visit. It holds the value 1 and no identifier.
+              We do not use tracking or advertising cookies. Any data stored locally (such as draft autosaves and UI preferences) remains exclusively inside your browser (via LocalStorage or IndexedDB) and is never sent to third parties.
             </p>
-            <p className="mb-3 leading-relaxed text-muted-foreground">
-              The following third parties may set cookies or similar
-              identifiers when you visit the site:
-            </p>
-            <ul className="list-inside list-disc space-y-3 text-muted-foreground">
-              {THIRD_PARTY_COOKIES.map((vendor) => (
-                <li key={vendor.name}>
-                  <strong className="text-foreground">{vendor.name}:</strong>{" "}
-                  {vendor.purpose}{" "}
-                  <ExternalLink href={vendor.policy}>Policy</ExternalLink>.
-                </li>
-              ))}
-            </ul>
             <p className="mt-3 leading-relaxed text-muted-foreground">
-              You can block or delete cookies in your browser settings. The
-              editor and image tools keep working without them.
-            </p>
-          </Section>
-
-          <Section title="Consent in the EEA, UK, and Switzerland">
-            <p className="leading-relaxed text-muted-foreground">
-              If you visit from the European Economic Area, the United Kingdom,
-              or Switzerland, a consent message from a Google-certified consent
-              management platform asks for your choice before Google and its ad
-              partners use cookies or your data for personalized ads. If you
-              decline, Google may still show non-personalized ads, which use
-              cookies only for frequency capping, aggregated reporting, and
-              fraud prevention. You can change your choice at any time from the
-              &quot;Privacy and cookie settings&quot; link at the bottom of the
-              page.
+              You can clear site data in your browser settings at any time to remove all saved drafts and preferences.
             </p>
           </Section>
 
@@ -419,11 +294,6 @@ export default function PrivacyPolicyPage() {
                 and preference stored locally.
               </li>
               <li>
-                Opt out of personalized ads with Google Ads Settings, and block
-                cookies or use a content blocker. The editor works without
-                analytics and without ads.
-              </li>
-              <li>
                 Skip URL capture and tweet import if you do not want those
                 requests made. Importing images from your device never leaves
                 the browser.
@@ -437,17 +307,17 @@ export default function PrivacyPolicyPage() {
 
           <Section title="Children">
             <p className="leading-relaxed text-muted-foreground">
-              Screenshot Studio is not directed at children under 13 (or under
-              16 in the EEA and UK), and we do not knowingly collect information
-              from them. Ads on this site are not intended for children.
+              PhotoRedactor is not directed at children under 13 (or under
+              16 in the EEA and UK), and we do not knowingly collect personal information
+              from children.
             </p>
           </Section>
 
           <Section title="Open Source">
             <p className="leading-relaxed text-muted-foreground">
-              Screenshot Studio is open source. Every claim on this page about
+              PhotoRedactor is open source. Every claim on this page about
               how the editor handles your images can be checked against the{" "}
-              <ExternalLink href="https://github.com/opennookorg/screenshot-studio">
+              <ExternalLink href="https://github.com/maxmutov-nuriddin/PhotoRedactor">
                 source code on GitHub
               </ExternalLink>
               .
@@ -478,7 +348,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }

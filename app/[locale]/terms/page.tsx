@@ -6,7 +6,7 @@ import { Footer } from "@/components/landing/Footer";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
-    "Terms and Conditions for using Screenshot Studio, the free, open-source screenshot beautifier.",
+    "Terms and Conditions for using PhotoRedactor, the free, open-source image editor.",
   alternates: {
     canonical: "/terms",
   },
@@ -43,7 +43,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              By accessing and using Screenshot Studio (&quot;the Service&quot;),
+              By accessing and using PhotoRedactor (&quot;the Service&quot;),
               you agree to be bound by these Terms and Conditions. If you do not
               agree to these terms, please do not use the Service.
             </p>
@@ -57,7 +57,7 @@ export default function TermsPage() {
               2. Description of Service
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              Screenshot Studio is a free, browser-based screenshot editing tool
+              PhotoRedactor is a free, browser-based image editing tool
               that allows users to beautify screenshots with backgrounds,
               frames, effects, and more. Editing happens in your browser, and images
               you import are not uploaded to edit them. Exporting sends the
@@ -107,12 +107,12 @@ export default function TermsPage() {
               4. Intellectual Property
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              The images you create with Screenshot Studio belong to you. We
+              The images you create with PhotoRedactor belong to you. We
               claim no ownership or rights over content you produce using the
-              tool. The Screenshot Studio software itself is open source and
+              tool. The PhotoRedactor software itself is open source and
               licensed under the terms specified in our{" "}
               <Link
-                href="https://github.com/opennookorg/screenshot-studio"
+                href="https://github.com/maxmutov-nuriddin/PhotoRedactor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClassName}
@@ -128,25 +128,11 @@ export default function TermsPage() {
               className="mb-3 text-xl font-semibold tracking-[-0.02em] text-foreground"
               style={{ fontFamily: INTER }}
             >
-              5. Advertising and Third-Party Services
+              5. Third-Party Services
             </h2>
-            <p className="mb-3 leading-relaxed text-muted-foreground">
-              The Service is free to use and is supported by ads served by
-              Google AdSense. Ads are provided by third parties, and we are not
-              responsible for the products or services they promote. You agree
-              not to click ads artificially, use automated tools to generate ad
-              impressions or clicks, or encourage others to do so.
-            </p>
             <p className="leading-relaxed text-muted-foreground">
-              Some features rely on third-party services, such as Microlink for
-              URL screenshots and X for tweet imports, and guides link to
-              external websites. Those services and sites are governed by their
-              own terms and privacy policies. How ads, analytics, and cookies
-              work on this site is explained in our{" "}
-              <Link href="/privacy-policy" className={linkClassName}>
-                privacy policy
-              </Link>
-              .
+              Some features may interact with third-party tools or external websites. Those services and sites are governed by their
+              own terms and privacy policies.
             </p>
           </section>
 
@@ -188,7 +174,7 @@ export default function TermsPage() {
               8. Limitation of Liability
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              In no event shall Screenshot Studio or its creator be liable for
+              In no event shall PhotoRedactor or its creators be liable for
               any indirect, incidental, special, consequential, or punitive
               damages arising out of or related to your use of the Service.
             </p>
@@ -226,7 +212,7 @@ export default function TermsPage() {
         </div>
       </main>
 
-      <Footer brandName="Screenshot Studio" />
+      <Footer brandName="PhotoRedactor" />
     </div>
   );
 }
