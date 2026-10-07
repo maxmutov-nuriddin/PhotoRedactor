@@ -20,6 +20,7 @@ import {
 import { cn } from '@/lib/utils';
 import { getR2ImageUrl } from '@/lib/r2';
 import { isOverlayPath } from '@/lib/r2-overlays';
+import { useAppTranslations } from '@/lib/i18n/use-app-translations';
 
 function getThumbSrc(overlay: { src: string; isCustom?: boolean }) {
   const isR2 =
@@ -31,6 +32,7 @@ function getThumbSrc(overlay: { src: string; isCustom?: boolean }) {
 }
 
 export function StyleTabs() {
+  const { t } = useAppTranslations();
   const {
     uploadedImageUrl,
     borderRadius,
@@ -172,8 +174,8 @@ export function StyleTabs() {
                   </p>
                   <p className="text-[11px] text-muted-foreground">
                     {(selectedOverlay.layer || 'front') === 'front'
-                      ? 'In front of main image'
-                      : 'Behind main image'}
+                      ? t.editor.layerFront
+                      : t.editor.layerBack}
                   </p>
                 </div>
               </div>
@@ -183,8 +185,8 @@ export function StyleTabs() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7 text-muted-foreground hover:text-foreground"
-                  title={(selectedOverlay.layer || 'front') === 'front' ? 'Send behind image' : 'Bring to front'}
+                  className="h-7 w-7 text-muted-foreground hover:text-foreground cursor-pointer"
+                  title={(selectedOverlay.layer || 'front') === 'front' ? t.editor.sendBehind : t.editor.bringFront}
                   onClick={() =>
                     updateImageOverlay(selectedOverlay.id, {
                       layer: (selectedOverlay.layer || 'front') === 'front' ? 'back' : 'front',
@@ -200,8 +202,8 @@ export function StyleTabs() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7 text-muted-foreground hover:text-foreground"
-                  title="Duplicate"
+                  className="h-7 w-7 text-muted-foreground hover:text-foreground cursor-pointer"
+                  title={t.editor.duplicate}
                   onClick={() => handleDuplicate(selectedOverlay)}
                 >
                   <Copy01Icon size={14} />
@@ -209,8 +211,8 @@ export function StyleTabs() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
-                  title="Delete"
+                  className="h-7 w-7 text-muted-foreground hover:text-destructive hover:bg-destructive/10 cursor-pointer"
+                  title={t.editor.delete}
                   onClick={() => {
                     removeImageOverlay(selectedOverlay.id);
                   }}
@@ -231,11 +233,11 @@ export function StyleTabs() {
               min={20}
               max={1200}
               step={5}
-              label="Overlay Size / Zoom"
+              label={t.editor.overlaySize}
               valueDisplay={`${selectedOverlay.size}px`}
             />
             <p className="text-[11px] text-muted-foreground">
-              Adjust size and scaling of this selected image
+              {t.editor.overlaySizeDesc}
             </p>
           </div>
 
@@ -249,7 +251,7 @@ export function StyleTabs() {
               min={0}
               max={1}
               step={0.01}
-              label="Opacity"
+              label={t.editor.opacity}
               valueDisplay={`${Math.round(selectedOverlay.opacity * 100)}%`}
             />
           </div>
@@ -264,7 +266,7 @@ export function StyleTabs() {
               min={-180}
               max={180}
               step={1}
-              label="Rotation"
+              label={t.editor.rotation}
               valueDisplay={`${selectedOverlay.rotation}°`}
             />
           </div>
@@ -279,38 +281,38 @@ export function StyleTabs() {
               min={0}
               max={20}
               step={1}
-              label="Blur Effect"
+              label={t.editor.blur}
               valueDisplay={`${selectedOverlay.blur ?? 0}px`}
             />
           </div>
 
           {/* Flip Controls */}
           <div className="space-y-2">
-            <Label className="text-xs font-semibold text-foreground">Flip</Label>
+            <Label className="text-xs font-semibold text-foreground">{t.editor.flip}</Label>
             <div className="grid grid-cols-2 gap-2">
               <Button
                 variant={selectedOverlay.flipX ? 'default' : 'outline'}
                 size="sm"
-                className="h-8 text-xs font-medium"
+                className="h-8 text-xs font-medium cursor-pointer"
                 onClick={() =>
                   updateImageOverlay(selectedOverlay.id, {
                     flipX: !selectedOverlay.flipX,
                   })
                 }
               >
-                Flip Horizontal
+                {t.editor.flipHorizontal}
               </Button>
               <Button
                 variant={selectedOverlay.flipY ? 'default' : 'outline'}
                 size="sm"
-                className="h-8 text-xs font-medium"
+                className="h-8 text-xs font-medium cursor-pointer"
                 onClick={() =>
                   updateImageOverlay(selectedOverlay.id, {
                     flipY: !selectedOverlay.flipY,
                   })
                 }
               >
-                Flip Vertical
+                {t.editor.flipVertical}
               </Button>
             </div>
           </div>
@@ -323,9 +325,9 @@ export function StyleTabs() {
               setSelectedOverlayId(null);
               setIsMainImageSelected(true);
             }}
-            className="w-full h-9 text-xs font-medium gap-1.5"
+            className="w-full h-9 text-xs font-medium gap-1.5 cursor-pointer"
           >
-            ← Back to Main Image Controls
+            {t.editor.backToMain}
           </Button>
         </div>
       ) : (
@@ -334,22 +336,22 @@ export function StyleTabs() {
           <TabsList className="w-full grid grid-cols-2 rounded-none bg-transparent h-12 p-1.5 gap-1.5">
             <TabsTrigger
               value="style"
-              className="data-[state=active]:bg-background rounded-md border-0 data-[state=active]:border-0 transition-all duration-200"
+              className="data-[state=active]:bg-background rounded-md border-0 data-[state=active]:border-0 transition-all duration-200 cursor-pointer"
             >
-              Style
+              {t.editor.style}
             </TabsTrigger>
             <TabsTrigger
               value="Transforms"
-              className="data-[state=active]:bg-background rounded-md border-0 data-[state=active]:border-0 transition-all duration-200"
+              className="data-[state=active]:bg-background rounded-md border-0 data-[state=active]:border-0 transition-all duration-200 cursor-pointer"
             >
-              Transforms
+              {t.editor.transforms}
             </TabsTrigger>
           </TabsList>
 
           <TabsContent value="style" className="mt-4 space-y-6">
             <div className="space-y-4">
               <Label className="text-sm font-semibold text-foreground">
-                Border Radius
+                {t.editor.borderRadius}
               </Label>
               <div className="flex gap-2 mb-3">
                 <Button

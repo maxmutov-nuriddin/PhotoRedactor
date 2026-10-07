@@ -34,85 +34,11 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useAppTranslations } from "@/lib/i18n/use-app-translations";
 
 interface NavigationProps {
   brandName?: string;
 }
-
-const resourceGroups = [
-  {
-    title: "Create",
-    links: [
-      {
-        label: "Screenshot Editor",
-        description: "Frame, annotate, and export online",
-        href: "/free-screenshot-editor",
-        icon: Edit02Icon,
-      },
-      {
-        label: "Code Images",
-        description: "Polished images of code snippets",
-        href: "/code",
-        icon: SourceCodeIcon,
-      },
-      {
-        label: "Tweet Images",
-        description: "Clean cards from any X post",
-        href: "/tweet",
-        icon: NewTwitterIcon,
-      },
-      {
-        label: "Remove Background",
-        description: "Cut the subject out of any image",
-        href: "/remove-background",
-        icon: EraserIcon,
-      },
-      {
-        label: "Image Tools",
-        description: "Crop, resize, compress, convert",
-        href: "/tools",
-        icon: CropIcon,
-      },
-    ],
-  },
-  {
-    title: "Learn",
-    links: [
-      {
-        label: "Compare",
-        description: "Side by side with the alternatives",
-        href: "/compare",
-        icon: Layers01Icon,
-      },
-      {
-        label: "For Designers",
-        description: "Mockups and polish for portfolios",
-        href: "/for/designers",
-        icon: PaintBoardIcon,
-      },
-      {
-        label: "For Developers",
-        description: "Code shots for READMEs and docs",
-        href: "/for/developers",
-        icon: CommandLineIcon,
-      },
-      {
-        label: "Changelog",
-        description: "What shipped recently",
-        href: "/changelog",
-        icon: Clock01Icon,
-      },
-    ],
-  },
-] as const;
-
-const featuredGuide = {
-  eyebrow: "Featured guide",
-  title: "Make any screenshot look professional",
-  href: "/guides/how-to-beautify-screenshots",
-  description: "Backgrounds, shadows, and frames in under a minute.",
-  cover: "/guide-covers/how-to-beautify-screenshots.webp",
-};
 
 const SCROLL_COMPACT_AT = 10;
 const SCROLL_TOP_SHOW = 100;
@@ -123,10 +49,86 @@ const MENU_EASE_OUT = [0.16, 1, 0.3, 1] as const;
 export function Navigation({
   brandName = "PhotoRedactor",
 }: NavigationProps) {
+  const { t } = useAppTranslations();
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
+
+  const resourceGroups = [
+    {
+      title: t.nav.create,
+      links: [
+        {
+          label: t.nav.screenshotEditor,
+          description: t.nav.screenshotEditorDesc,
+          href: "/free-screenshot-editor",
+          icon: Edit02Icon,
+        },
+        {
+          label: t.nav.codeImages,
+          description: t.nav.codeImagesDesc,
+          href: "/code",
+          icon: SourceCodeIcon,
+        },
+        {
+          label: t.nav.tweetImages,
+          description: t.nav.tweetImagesDesc,
+          href: "/tweet",
+          icon: NewTwitterIcon,
+        },
+        {
+          label: t.nav.removeBackground,
+          description: t.nav.removeBackgroundDesc,
+          href: "/remove-background",
+          icon: EraserIcon,
+        },
+        {
+          label: t.nav.imageTools,
+          description: t.nav.imageToolsDesc,
+          href: "/tools",
+          icon: CropIcon,
+        },
+      ],
+    },
+    {
+      title: t.nav.learn,
+      links: [
+        {
+          label: t.nav.compare,
+          description: t.nav.compareDesc,
+          href: "/compare",
+          icon: Layers01Icon,
+        },
+        {
+          label: t.nav.forDesigners,
+          description: t.nav.forDesignersDesc,
+          href: "/for/designers",
+          icon: PaintBoardIcon,
+        },
+        {
+          label: t.nav.forDevelopers,
+          description: t.nav.forDevelopersDesc,
+          href: "/for/developers",
+          icon: CommandLineIcon,
+        },
+        {
+          label: t.nav.changelog,
+          description: t.nav.changelogDesc,
+          href: "/changelog",
+          icon: Clock01Icon,
+        },
+      ],
+    },
+  ];
+
+  const featuredGuide = {
+    eyebrow: t.nav.featuredGuide,
+    title: t.nav.guideTitle,
+    href: "/guides/how-to-beautify-screenshots",
+    description: t.nav.guideDesc,
+    cover: "/guide-covers/how-to-beautify-screenshots.webp",
+  };
   const openTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -270,7 +272,7 @@ export function Navigation({
             href="/features"
             className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
           >
-            Product
+            {t.nav.product}
           </Link>
 
           <div
@@ -284,13 +286,13 @@ export function Navigation({
               aria-haspopup="true"
               onClick={toggleResources}
               className={cn(
-                "group inline-flex items-center rounded-sm text-[15px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "group inline-flex items-center rounded-sm text-[15px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer",
                 resourcesOpen
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              Resources
+              {t.nav.resources}
               <ArrowDown01Icon
                 aria-hidden="true"
                 className={cn(
@@ -395,7 +397,7 @@ export function Navigation({
                           {featuredGuide.description}
                         </span>
                         <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[13px] text-muted-foreground transition-colors group-hover/feature:text-foreground">
-                          Read the guide
+                          {t.nav.readGuide}
                           <ArrowRight01Icon className="size-3.5" aria-hidden="true" />
                         </span>
                       </span>
@@ -410,14 +412,14 @@ export function Navigation({
             href="/guides"
             className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
           >
-            Blog
+            {t.nav.blog}
           </Link>
 
           <Link
             href="/contact"
             className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
           >
-            Contact
+            {t.nav.contact}
           </Link>
         </div>
 
@@ -442,7 +444,7 @@ export function Navigation({
         >
           <SheetHeader className="flex flex-row items-center justify-between border-b border-border px-5 py-4">
             <SheetTitle className="text-base font-semibold text-foreground">
-              Menu
+              {t.nav.menu}
             </SheetTitle>
             <LanguageSwitcher variant="compact" />
           </SheetHeader>
@@ -452,7 +454,7 @@ export function Navigation({
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
             >
-              Product
+              {t.nav.product}
             </Link>
             {resourceGroups.map((group) => (
               <div key={group.title} className="flex flex-col gap-0.5">
@@ -478,14 +480,14 @@ export function Navigation({
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
             >
-              Blog
+              {t.nav.blog}
             </Link>
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-md px-3 py-2.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
             >
-              Contact
+              {t.nav.contact}
             </Link>
           </nav>
         </SheetContent>

@@ -13,10 +13,12 @@ import { StyleTabs } from './style-tabs';
 import { Button } from '@/components/ui/button';
 import { Download04Icon, GithubIcon } from 'hugeicons-react';
 import { useExport } from '@/hooks/useExport';
+import { useAppTranslations } from '@/lib/i18n/use-app-translations';
 
 export function SidebarLeft({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const { t } = useAppTranslations();
   const { 
     uploadedImageUrl, 
     selectedAspectRatio,
@@ -46,12 +48,12 @@ export function SidebarLeft({
               <Button
                 onClick={() => setExportDialogOpen(true)}
                 disabled={!uploadedImageUrl}
-                className="w-full h-10 justify-center gap-2.5 rounded-lg bg-background hover:bg-accent text-foreground border border-border hover:border-border/80  transition-all duration-200 font-semibold text-sm px-4 overflow-hidden"
+                className="w-full h-10 justify-center gap-2.5 rounded-lg bg-background hover:bg-accent text-foreground border border-border hover:border-border/80  transition-all duration-200 font-semibold text-sm px-4 overflow-hidden cursor-pointer"
                 variant="outline"
                 size="sm"
               >
                 <Download04Icon className="size-4 shrink-0" />
-                <span className="truncate">Download</span>
+                <span className="truncate">{t.editor.download}</span>
               </Button>
             </div>
           </div>

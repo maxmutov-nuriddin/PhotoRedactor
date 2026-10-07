@@ -58,12 +58,14 @@ import { cn } from "@/lib/utils";
 import { GitHubStarButton } from "@/components/ui/github-star-button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useAppTranslations } from "@/lib/i18n/use-app-translations";
 import {
   hasVisibleMockups,
   shouldRenderSourceImage,
 } from "@/lib/device-mockups/layouts";
 
 export function EditorHeader() {
+  const { t } = useAppTranslations();
   const isMobile = useIsMobile();
   const [shortcutsOpen, setShortcutsOpen] = React.useState(false);
   const { screenshot } = useEditorStore();
@@ -205,14 +207,14 @@ export function EditorHeader() {
           >
             <Image
               src="/logo-mark.png"
-              alt="Screenshot Studio"
+              alt="PhotoRedactor"
               width={32}
               height={32}
               className="h-8 w-8"
               priority
             />
             <span className="hidden sm:inline font-semibold text-foreground text-sm tracking-tight leading-none">
-              Screenshot Studio
+              PhotoRedactor
             </span>
           </Link>
 
@@ -223,7 +225,7 @@ export function EditorHeader() {
                 type="button"
                 onClick={() => setShowTemplates(!showTemplates)}
                 aria-expanded={showTemplates}
-                aria-label="Templates"
+                aria-label={t.editor.templates}
                 className={cn(
                   "inline-flex h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-md px-2",
                   "text-sm font-medium leading-none transition-colors duration-150",
@@ -233,7 +235,7 @@ export function EditorHeader() {
                 )}
               >
                 <MagicWand01Icon size={14} className="shrink-0" />
-                <span>Templates</span>
+                <span>{t.editor.templates}</span>
               </button>
             </>
           ) : null}
@@ -253,11 +255,11 @@ export function EditorHeader() {
                 className={cn(
                   "flex items-center justify-center w-8 h-8 rounded-md shrink-0 cursor-pointer",
                   "text-muted-foreground transition-all duration-150",
-                  canUndo
+                    canUndo
                     ? "hover:text-foreground active:scale-95"
                     : "opacity-40 cursor-not-allowed",
                 )}
-                title="Undo (Cmd+Z)"
+                title={t.editor.undo}
               >
                 <ArrowTurnBackwardIcon size={16} />
               </button>
@@ -271,7 +273,7 @@ export function EditorHeader() {
                     ? "hover:text-foreground active:scale-95"
                     : "opacity-40 cursor-not-allowed",
                 )}
-                title="Redo (Cmd+Shift+Z)"
+                title={t.editor.redo}
               >
                 <ArrowTurnForwardIcon size={16} />
               </button>
@@ -292,7 +294,7 @@ export function EditorHeader() {
                     ? "bg-muted text-foreground"
                     : "text-muted-foreground hover:text-foreground",
                 )}
-                title="Toggle rulers"
+                title={t.editor.toggleRulers}
               >
                 <RulerIcon size={15} />
               </button>
@@ -301,7 +303,7 @@ export function EditorHeader() {
                   value={rulerInterval}
                   onChange={(e) => setRulerInterval(Number(e.target.value))}
                   className="h-8 px-1.5 text-[11px] rounded-md bg-muted text-foreground border-0 outline-none cursor-pointer shrink-0"
-                  title="Ruler interval"
+                  title={t.editor.rulerInterval}
                 >
                   <option value={25}>25px</option>
                   <option value={50}>50px</option>
@@ -317,7 +319,7 @@ export function EditorHeader() {
                     ? "bg-muted text-foreground"
                     : "text-muted-foreground hover:text-foreground",
                 )}
-                title="Toggle grid"
+                title={t.editor.toggleGrid}
               >
                 <GridIcon size={15} />
               </button>
@@ -343,7 +345,7 @@ export function EditorHeader() {
                   <span className="text-xs leading-none">
                     {currentAspectRatio
                       ? `${currentAspectRatio.width}:${currentAspectRatio.height}`
-                      : "Auto"}
+                      : t.editor.auto}
                   </span>
                 </Button>
               </PopoverTrigger>
@@ -374,7 +376,7 @@ export function EditorHeader() {
                 />
                 <span className="h-8 inline-flex items-center justify-center gap-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted text-xs leading-none transition-all font-medium px-2.5">
                   <Add01Icon size={14} />
-                  <span>Add Slide</span>
+                  <span>{t.editor.addSlide}</span>
                 </span>
               </label>
             ) : null}
@@ -388,14 +390,14 @@ export function EditorHeader() {
               disabled={!hasContent || isExporting || isCopying}
               variant="ghost"
               size="sm"
-              aria-label="Copy"
+              aria-label={t.editor.copy}
               className={cn(
                 "h-8 gap-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-transparent dark:hover:bg-transparent text-xs leading-none shrink-0",
                 isMobile ? "px-1.5" : "px-2.5"
               )}
             >
               <Copy01Icon size={15} />
-              {!isMobile ? <span>Copy</span> : null}
+              {!isMobile ? <span>{t.editor.copy}</span> : null}
             </Button>
 
             <Popover
@@ -406,14 +408,14 @@ export function EditorHeader() {
                 <Button
                   disabled={!hasContent}
                   size="sm"
-                  aria-label="Save"
+                  aria-label={t.editor.save}
                   className={cn(
                     "h-8 gap-1.5 rounded-md text-xs font-medium leading-none shrink-0",
                     isMobile ? "px-2" : "px-3"
                   )}
                 >
                   <Download04Icon size={15} />
-                  {!isMobile ? <span>Save</span> : null}
+                  {!isMobile ? <span>{t.editor.save}</span> : null}
                 </Button>
               </PopoverTrigger>
               <PopoverContent
@@ -428,10 +430,10 @@ export function EditorHeader() {
                 {isExporting ? (
                   <div className="p-5">
                     <p className="text-sm font-medium text-foreground mb-1">
-                      Exporting...
+                      {t.editor.exporting}
                     </p>
                     <p className="text-xs text-muted-foreground mb-4">
-                      Rendering your creation
+                      {t.editor.renderingCreation}
                     </p>
                     <ImageExportProgressView
                       progress={progress}
@@ -477,7 +479,7 @@ export function EditorHeader() {
                         className="w-full h-10 text-sm font-semibold rounded-md transition-all"
                       >
                         <FileZipIcon size={16} className="mr-2" />
-                        Export All ({slides.length})
+                        {t.editor.exportAll} ({slides.length})
                       </Button>
                     )}
                   </div>
@@ -492,7 +494,7 @@ export function EditorHeader() {
                 className="h-8 gap-1.5 rounded-md text-xs font-medium leading-none px-3 shrink-0"
               >
                 <Video01Icon size={14} />
-                <span>Export Video</span>
+                <span>{t.editor.exportVideo}</span>
               </Button>
             ) : null}
           </div>
@@ -510,11 +512,11 @@ export function EditorHeader() {
                         "text-xs font-medium leading-none text-muted-foreground transition-[color,background-color,transform] duration-150",
                         "hover:bg-muted hover:text-foreground active:scale-[0.98]",
                       )}
-                      aria-label="Start over"
-                      title="Reset the design and animation"
+                      aria-label={t.editor.startOver}
+                      title={t.editor.startOverDesc}
                     >
                       <RefreshIcon size={14} />
-                      <span>Start over</span>
+                      <span>{t.editor.startOver}</span>
                     </button>
                   </AlertDialogTrigger>
                   <AlertDialogContent className="sm:max-w-[420px]">
@@ -522,18 +524,18 @@ export function EditorHeader() {
                       <div className="mx-auto flex size-10 items-center justify-center rounded-full bg-destructive/10 text-destructive sm:mx-0">
                         <RefreshIcon aria-hidden="true" size={18} />
                       </div>
-                      <AlertDialogTitle>Start over?</AlertDialogTitle>
+                      <AlertDialogTitle>{t.editor.startOverTitle}</AlertDialogTitle>
                       <AlertDialogDescription>
-                        This resets the current design, overlays, and animation. Your uploaded media stays, and you can undo this action.
+                        {t.editor.startOverDesc}
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogCancel>{t.editor.cancel}</AlertDialogCancel>
                       <AlertDialogAction
                         onClick={resetCanvasSettings}
                         className="bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive/30"
                       >
-                        Start over
+                        {t.editor.startOver}
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
@@ -546,7 +548,7 @@ export function EditorHeader() {
                     className="h-8 gap-1.5 px-2.5 text-xs leading-none text-muted-foreground hover:text-destructive hover:bg-transparent dark:hover:bg-transparent shrink-0"
                   >
                     <Delete02Icon size={14} />
-                    <span>Remove</span>
+                    <span>{t.editor.remove}</span>
                   </Button>
                 ) : null}
               </div>
@@ -556,7 +558,7 @@ export function EditorHeader() {
 
         <div className="flex items-center gap-1.5 justify-self-end">
           <LanguageSwitcher variant="editor" />
-          <Button variant="ghost" size="icon" aria-label="Keyboard shortcuts" onClick={() => setShortcutsOpen(true)}>
+          <Button variant="ghost" size="icon" aria-label={t.editor.shortcuts} onClick={() => setShortcutsOpen(true)}>
             <KeyboardIcon size={16} />
           </Button>
         </div>
