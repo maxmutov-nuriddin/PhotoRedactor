@@ -40,13 +40,11 @@ export function Footer({ brandName = "PhotoRedactor" }: FooterProps) {
   const navCol2 = [
     { href: "/tools", label: t.footer.imageTools },
     { href: "/features", label: t.footer.features },
-    { href: "/guides", label: t.footer.guides },
     { href: "/changelog", label: t.nav.changelog },
   ];
 
   const navCol3 = [
     { href: "/about", label: t.footer.about },
-    { href: "/contact", label: t.footer.contact },
     { href: "/privacy-policy", label: t.footer.privacy },
     { href: "/terms", label: t.footer.terms },
   ];

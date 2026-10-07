@@ -251,7 +251,7 @@ export function Navigation({
         transition={{ duration: 0.3 }}
       >
         <Link
-          href="/landing"
+          href="/"
           className="col-start-1 flex min-w-0 items-center gap-2.5 justify-self-start"
         >
           <Image
@@ -408,23 +408,16 @@ export function Navigation({
             </AnimatePresence>
           </div>
 
-          <Link
-            href="/guides"
-            className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t.nav.blog}
-          </Link>
-
-          <Link
-            href="/contact"
-            className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t.nav.contact}
-          </Link>
         </div>
 
-        <div className="col-start-3 flex items-center gap-2 justify-self-end shrink-0">
+        <div className="col-start-3 flex items-center gap-2.5 justify-self-end shrink-0">
           <LanguageSwitcher />
+          <Link
+            href="/editor"
+            className="inline-flex items-center justify-center rounded-lg bg-foreground px-3.5 py-1.5 text-sm font-medium text-background transition-opacity hover:opacity-90 active:scale-[0.98] shadow-sm"
+          >
+            {t.nav.openEditor}
+          </Link>
           <button
             type="button"
             className="md:hidden flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50"
@@ -474,21 +467,15 @@ export function Navigation({
                 ))}
               </div>
             ))}
-            <div className="my-2 h-px bg-foreground/10" />
-            <Link
-              href="/guides"
-              onClick={() => setMobileMenuOpen(false)}
-              className="rounded-md px-3 py-2.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
-            >
-              {t.nav.blog}
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="rounded-md px-3 py-2.5 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
-            >
-              {t.nav.contact}
-            </Link>
+            <div className="mt-4 px-2 pt-2">
+              <Link
+                href="/editor"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex w-full items-center justify-center rounded-xl bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 shadow-sm"
+              >
+                {t.nav.openEditor}
+              </Link>
+            </div>
           </nav>
         </SheetContent>
       </Sheet>
