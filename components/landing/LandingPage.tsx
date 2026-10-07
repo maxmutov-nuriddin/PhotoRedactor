@@ -4,7 +4,6 @@ import { Hero } from "./Hero";
 import { HowItWorks } from "./HowItWorks";
 import { Footer } from "./Footer";
 import { FAQ } from "./FAQ";
-import { VideoTestimonials } from "./VideoTestimonials";
 import { FeaturesBento } from "./FeaturesBento";
 import { ProductOverview } from "./ProductOverview";
 import { MasonryGrid } from "./MasonryGrid";
@@ -13,14 +12,6 @@ interface HowItWorksStep {
   step: number;
   title: string;
   description: string;
-}
-
-interface VideoTestimonial {
-  videoId: string;
-  startTime?: number;
-  endTime?: number;
-  title?: string;
-  author?: string;
 }
 
 interface LandingPageProps {
@@ -33,8 +24,6 @@ interface LandingPageProps {
   featuresTitle?: string;
   howItWorks?: HowItWorksStep[];
   brandName?: string;
-  videoTestimonials?: VideoTestimonial[];
-  videoTestimonialsTitle?: string;
   marqueeText?: string;
 }
 
@@ -45,13 +34,10 @@ export function LandingPage({
   ctaLabel = "Start Creating",
   ctaHref = "/",
   howItWorks,
-  brandName = "Screenshot Studio",
-  videoTestimonials,
-  videoTestimonialsTitle,
+  brandName = "PhotoRedactor",
 }: LandingPageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
-
       <div className="relative isolate">
         <HeroAtmosphere />
         <Navigation brandName={brandName} />
@@ -71,13 +57,6 @@ export function LandingPage({
       {howItWorks && howItWorks.length > 0 && <HowItWorks steps={howItWorks} />}
 
       <MasonryGrid />
-
-      {videoTestimonials && videoTestimonials.length > 0 && (
-        <VideoTestimonials
-          testimonials={videoTestimonials}
-          title={videoTestimonialsTitle}
-        />
-      )}
 
       <FAQ ctaLabel={ctaLabel} ctaHref={ctaHref} />
 

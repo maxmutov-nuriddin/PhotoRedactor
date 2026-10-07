@@ -6,12 +6,12 @@ export const OG_IMAGE = {
   url: `${SITE_URL}/og.jpg`,
   width: 1200,
   height: 630,
-  alt: "Screenshot Studio - Transform Screenshots into Professional Graphics",
+  alt: "PhotoRedactor - Transform Screenshots into Professional Graphics",
 };
 
 export const OG_DEFAULTS = {
   type: "website",
   locale: "en_US",
-  siteName: "Screenshot Studio",
+  siteName: "PhotoRedactor",
   images: [OG_IMAGE],
 } satisfies Metadata["openGraph"];

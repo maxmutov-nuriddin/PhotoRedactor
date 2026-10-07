@@ -74,40 +74,6 @@ export function Hero({
     <main className="relative z-10 pt-32 pb-24 sm:pt-36" role="banner">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="text-left">
-          <motion.a
-            href="https://vercel.com/oss"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-muted/40 px-3 py-1 text-xs ring-1 ring-border/60 transition-colors hover:bg-muted/55 hover:ring-border"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
-            animate={
-              showMotion
-                ? {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.35,
-                      ease: MASK_EASE,
-                      delay: 0.12,
-                    },
-                  }
-                : { opacity: 0, y: 6 }
-            }
-          >
-            <span className="text-muted-foreground">Backed by</span>
-            <Image
-              src="/vercel-icon.png"
-              alt=""
-              width={12}
-              height={10}
-              className="h-2.5 w-auto shrink-0 mix-blend-lighten"
-              aria-hidden="true"
-            />
-            <span className="font-medium text-foreground">
-              Vercel OSS Program
-            </span>
-          </motion.a>
-
           <h1
             ref={headingRef}
             className="max-w-4xl text-[32px] leading-[38px] sm:text-[44px] sm:leading-[50px] md:text-[56px] md:leading-[64px] font-semibold tracking-[-0.03em] text-foreground"

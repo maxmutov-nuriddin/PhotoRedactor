@@ -1,3 +1,5 @@
+"use client";
+
 import { MagicBento, type MagicBentoCard } from "./MagicBento";
 import {
   BackgroundsVisual,
@@ -7,52 +9,52 @@ import {
   MotionVisual,
   TransformsVisual,
 } from "./BentoCardVisuals";
-import { PRODUCT_FACTS, atLeast } from "@/lib/seo/product-facts";
-
-const FEATURE_CARDS: MagicBentoCard[] = [
-  {
-    title: "Device Frames",
-    description: "macOS, Windows, Arc, etc.",
-    label: "Frames",
-    visual: <FramesVisual />,
-  },
-  {
-    title: "3D Transforms",
-    description: "30+ perspective presets with realistic tilt.",
-    label: "Depth",
-    visual: <TransformsVisual />,
-  },
-  {
-    title: "Beautiful Backgrounds",
-    description:
-      `${atLeast(PRODUCT_FACTS.backgrounds)} gradients, solids, images, blur, and noise. One click polish.`,
-    label: "Style",
-    visual: <BackgroundsVisual />,
-    large: true,
-  },
-  {
-    title: "Animations & Video",
-    description:
-      `${atLeast(PRODUCT_FACTS.animationPresets)} presets plus a timeline editor. Export MP4, WebM, or GIF.`,
-    label: "Motion",
-    visual: <MotionVisual />,
-    large: true,
-  },
-  {
-    title: "Tweet & Code Snippets",
-    description: "Paste a tweet URL or drop code.",
-    label: "Capture",
-    visual: <CaptureVisual />,
-  },
-  {
-    title: "High-Res Export",
-    description: "PNG or JPG up to 5×.",
-    label: "Export",
-    visual: <ExportVisual />,
-  },
-];
+import { useAppTranslations } from "@/lib/i18n/use-app-translations";
 
 export function FeaturesBento(): React.JSX.Element {
+  const { t } = useAppTranslations();
+
+  const featureCards: MagicBentoCard[] = [
+    {
+      title: t.landing.cardFrames,
+      description: t.landing.cardFramesDesc,
+      label: "Frames",
+      visual: <FramesVisual />,
+    },
+    {
+      title: t.landing.cardTransforms,
+      description: t.landing.cardTransformsDesc,
+      label: "Depth",
+      visual: <TransformsVisual />,
+    },
+    {
+      title: t.landing.cardBackgrounds,
+      description: t.landing.cardBackgroundsDesc,
+      label: "Style",
+      visual: <BackgroundsVisual />,
+      large: true,
+    },
+    {
+      title: t.landing.cardMotion,
+      description: t.landing.cardMotionDesc,
+      label: "Motion",
+      visual: <MotionVisual />,
+      large: true,
+    },
+    {
+      title: t.landing.cardCapture,
+      description: t.landing.cardCaptureDesc,
+      label: "Capture",
+      visual: <CaptureVisual />,
+    },
+    {
+      title: t.landing.cardExport,
+      description: t.landing.cardExportDesc,
+      label: "Export",
+      visual: <ExportVisual />,
+    },
+  ];
+
   return (
     <section className="bg-background px-6 pt-20 pb-4 sm:pt-28 sm:pb-4">
       <div className="mx-auto w-full max-w-6xl">
@@ -64,14 +66,14 @@ export function FeaturesBento(): React.JSX.Element {
                 'Inter, "Inter Fallback", Arial, Helvetica, sans-serif',
             }}
           >
-            Everything you need.
+            {t.landing.bentoTitle1}
             <br />
-            Nothing you don&apos;t.
+            {t.landing.bentoTitle2}
           </h2>
         </div>
 
         <MagicBento
-          cards={FEATURE_CARDS}
+          cards={featureCards}
           textAutoHide
           enableSpotlight
           enableBorderGlow

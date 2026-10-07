@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useAppTranslations } from "@/lib/i18n/use-app-translations";
 
 export function ProductOverview(): React.JSX.Element {
+  const { t } = useAppTranslations();
+
   return (
     <section className="border-y border-border bg-background">
       <div className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16 lg:py-20">
@@ -8,7 +13,7 @@ export function ProductOverview(): React.JSX.Element {
           <div className="hidden w-full shrink-0 justify-center md:flex md:w-[30%] md:justify-start md:pr-12 lg:w-[28%] lg:pr-16">
             <Image
               src="/logo-mark.png"
-              alt="Screenshot Studio"
+              alt="PhotoRedactor"
               width={256}
               height={256}
               className="h-60 w-60 self-end object-contain lg:h-64 lg:w-64"
@@ -30,20 +35,12 @@ export function ProductOverview(): React.JSX.Element {
               }}
             >
               <span className="landing-heading block md:whitespace-nowrap">
-                Screenshot Studio?
+                {t.landing.overviewTitle}
               </span>
             </h2>
-            <div className="mt-6 max-w-2xl space-y-2 text-[15px] leading-normal text-muted-foreground md:text-base">
-              <p>
-                Screenshot Studio is a free, open-source screenshot editor that
-                runs entirely in your browser. It turns raw captures into images
-                you can publish. No signup, no watermarks, nothing to install.
-              </p>
-              <p>
-                Drop in a screenshot, tweet, or code snippet. Add a Safari or
-                Chrome frame, a gradient background, 3D perspective, and
-                animation. Export PNG, JPG, or video for social, docs, and decks.
-              </p>
+            <div className="mt-6 max-w-2xl space-y-3 text-[15px] leading-relaxed text-muted-foreground md:text-base">
+              <p>{t.landing.overviewP1}</p>
+              <p>{t.landing.overviewP2}</p>
             </div>
           </div>
         </div>

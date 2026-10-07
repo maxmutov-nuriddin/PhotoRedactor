@@ -1,53 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { NewTwitterIcon } from "hugeicons-react";
-import { GitHubIcon } from "@/components/ui/github-star-button";
-import { TOOLS } from "@/lib/seo/tools";
-import { guides } from "@/lib/seo/guides";
+import { useAppTranslations } from "@/lib/i18n/use-app-translations";
 
 interface FooterProps {
   brandName?: string;
 }
-
-const navCol1 = [
-  { href: "/editor", label: "Screenshot Editor" },
-  { href: "/free-screenshot-editor", label: "Free editor" },
-  { href: "/store-screenshots", label: "App store screenshots" },
-  { href: "/code", label: "Code to image" },
-  { href: "/tweet", label: "Tweet to image" },
-  { href: "/mockup-generator", label: "Mockup generator" },
-  { href: "/remove-background", label: "Remove background" },
-] as const;
-
-const navCol2 = [
-  { href: "/features", label: "Features" },
-  { href: "/tools", label: "Image tools" },
-  { href: "/compare", label: "Comparisons" },
-  { href: "/for", label: "Who it is for" },
-  { href: "/changelog", label: "Changelog" },
-] as const;
-
-const navCol3 = [
-  { href: "/guides", label: "Guides" },
-  { href: "/docs", label: "API docs" },
-  { href: "/developers", label: "Developers" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-] as const;
-
-const directoryRows = [
-  {
-    label: "Image tools",
-    links: TOOLS.map((tool) => ({ href: tool.slug, label: tool.name })),
-  },
-  {
-    label: "Guides",
-    links: guides.map((guide) => ({
-      href: `/guides/${guide.slug}`,
-      label: guide.title,
-    })),
-  },
-];
 
 function FooterNavLink({
   href,
@@ -68,6 +27,29 @@ function FooterNavLink({
 
 export function Footer({ brandName = "PhotoRedactor" }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const { t } = useAppTranslations();
+
+  const navCol1 = [
+    { href: "/editor", label: t.footer.screenshotEditor },
+    { href: "/code", label: t.footer.codeToImage },
+    { href: "/tweet", label: t.footer.tweetToImage },
+    { href: "/store-screenshots", label: "App Store Mockups" },
+    { href: "/remove-background", label: t.footer.removeBackground },
+  ];
+
+  const navCol2 = [
+    { href: "/tools", label: t.footer.imageTools },
+    { href: "/features", label: t.footer.features },
+    { href: "/guides", label: t.footer.guides },
+    { href: "/changelog", label: t.nav.changelog },
+  ];
+
+  const navCol3 = [
+    { href: "/about", label: t.footer.about },
+    { href: "/contact", label: t.footer.contact },
+    { href: "/privacy-policy", label: t.footer.privacy },
+    { href: "/terms", label: t.footer.terms },
+  ];
 
   return (
     <footer className="bg-background px-6 pb-8 pt-4 sm:pb-10">
@@ -75,7 +57,7 @@ export function Footer({ brandName = "PhotoRedactor" }: FooterProps) {
         <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
           <div className="flex h-full flex-col gap-6">
             <Link
-              href="/landing"
+              href="/"
               className="inline-flex w-fit items-center gap-2.5"
             >
               <Image
@@ -90,17 +72,13 @@ export function Footer({ brandName = "PhotoRedactor" }: FooterProps) {
               </span>
             </Link>
             <p
-              className="max-w-xs text-[22px] font-semibold leading-[1.2] tracking-[-0.03em] text-foreground sm:text-[26px] sm:leading-[1.15]"
+              className="max-w-xs text-[20px] font-semibold leading-[1.3] tracking-[-0.03em] text-foreground sm:text-[24px]"
               style={{
                 fontFamily:
                   'Inter, "Inter Fallback", Arial, Helvetica, sans-serif',
               }}
             >
-              Simple and fast.
-              <br />
-              Image and mockup editor
-              <br />
-              for everyone.
+              {t.footer.tagline}
             </p>
           </div>
 
@@ -123,48 +101,24 @@ export function Footer({ brandName = "PhotoRedactor" }: FooterProps) {
           </div>
         </div>
 
-        <nav
-          aria-label="Site directory"
-          className="mt-10 flex flex-col gap-3 border-t border-border pt-6"
-        >
-          {directoryRows.map((row) => (
-            <p key={row.label} className="text-xs leading-6 text-muted-foreground">
-              <span className="mr-2 font-medium text-foreground/80">
-                {row.label}
-              </span>
-              {row.links.map((link, index) => (
-                <span key={link.href}>
-                  {index > 0 && <span aria-hidden="true"> · </span>}
-                  <Link
-                    href={link.href}
-                    className="transition-colors duration-150 hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </span>
-              ))}
-            </p>
-          ))}
-        </nav>
-
-        <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div className="flex flex-wrap items-center gap-2">
             <Link
               href="/privacy-policy"
               className="inline-flex h-10 items-center rounded-md bg-foreground/[0.04] px-3 text-sm text-foreground/90 ring-1 ring-border transition-colors duration-150 hover:bg-foreground/[0.08] hover:text-foreground"
             >
-              Privacy policy
+              {t.footer.privacy}
             </Link>
             <Link
               href="/terms"
               className="inline-flex h-10 items-center rounded-md bg-foreground/[0.04] px-3 text-sm text-foreground/90 ring-1 ring-border transition-colors duration-150 hover:bg-foreground/[0.08] hover:text-foreground"
             >
-              Terms of service
+              {t.footer.terms}
             </Link>
           </div>
 
           <p className="text-xs text-muted-foreground/70">
-            © {currentYear} {brandName}. All rights reserved.
+            © {currentYear} {brandName}. {t.footer.copyright}
           </p>
         </div>
       </div>

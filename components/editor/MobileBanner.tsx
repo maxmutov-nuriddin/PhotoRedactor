@@ -5,7 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { Cancel01Icon, ComputerIcon } from "hugeicons-react";
 
-const DISMISSED_KEY = "screenshotstudio-mobile-banner-dismissed";
+const DISMISSED_KEY = "photoredactor-mobile-banner-dismissed";
 
 export function MobileBanner() {
   const isMobile = useIsMobile();
@@ -35,7 +35,7 @@ export function MobileBanner() {
         <div className="flex items-center gap-3 flex-1 min-w-0">
           <ComputerIcon className="h-5 w-5 text-foreground shrink-0" />
           <p className="text-sm text-foreground font-medium">
-            For the best experience, please use Screenshot Studio on a desktop
+            For the best experience, please use PhotoRedactor on a desktop
             device.
           </p>
         </div>
